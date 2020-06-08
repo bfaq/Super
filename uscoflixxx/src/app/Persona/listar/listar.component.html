@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h3 style=" color: #df6c0e; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 30px; ">Listado de Usuarios</h3>
+    </div>
+    <div class="table" >
+      <thead>
+        <tr style="color: rgb(5, 2, 2);" class="text-center">
+          <th>Id</th>
+          <th>Nombres</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Password</th>
+          <th>Operaciones</th>
+        </tr>
+      </thead>
+      <tbody style="color: rgb(0, 0, 0);">
+         <tr *ngFor="let usuario of usuarios" class="text-center">
+           <td>{{usuario.id}}</td>
+           <td>{{usuario.nombre}}</td>
+           <td>{{usuario.username}}</td>
+           <td>{{usuario.email}}</td>
+           <td>{{usuario.password}}</td>
+           <td>
+             <button (click)="Editar(usuario)" class="btn btn-warning">Editar</button>
+             <button (click)="Delete(usuario)"class="btn btn-danger" style="margin-left: 15px;">Borrar</button>
+           </td>
+         </tr>
+      </tbody>
+    </div>
+  </div>
+</div>

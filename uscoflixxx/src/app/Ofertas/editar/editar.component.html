@@ -1,0 +1,51 @@
+<div class="container" *ngIf="form.nombreProducto && !failInit">
+  <div class="card">
+    <div class="card-header">
+
+      <h3 style="margin-left: 50px; color:#05e223; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 30px; margin-left: 115px;">CREAR OFERTA </h3>
+    </div>
+
+    <form name="form" #f="ngForm" (ngSubmit)="onUpdate()" novalidate>
+      <div class="form-group">
+        <input class="form-control" name="imagen" id="imagen" [(ngModel)]="form.imagen" #nombre="ngModel"
+        autocomplete="off" required>
+      </div>
+      <div class="form-group">
+        <input placeholder="Nombre producto" class="form-control" id="nombreproducto" name="nombreproducto" type="text" [(ngModel)]="form.nombreProducto"
+        #nombreUsuario="ngModel" autocomplete="off" required>
+      </div>
+      <div class="form-group">
+        <input placeholder="Descripción" class="form-control" id="descripcion" name="descripcion" [(ngModel)]="form.descripcion" autocomplete="off" required>
+      </div>
+      <div class="form-group">
+        <input placeholder="Precio" class="form-control" name="precio" [(ngModel)]="form.precio" required>
+      </div>
+      <div class="form-group">
+        <input placeholder="Tipo producto" class="form-control" name="tipo" [(ngModel)]="form.tipo" required>
+      </div>
+      <div class="form-group">
+        <input placeholder="Supermercado" class="form-control" name="supermercado" [(ngModel)]="form.supermercado"required>
+      </div>
+      <div class="form-group">
+        <input placeholder="Vigencia" class="form-control" name="vigencia" [(ngModel)]="form.vigencia" required>
+      </div>
+      <div class="form-group">
+        <button (click)="onUpdate(form)" class="btn btn-success" [disabled]="!f.valid">Actualizar</button>
+      </div>
+    </form>
+    <div>
+      <button class="btn btn-primary float-left mr-3" (click)="volver()">Volver</button>
+    </div>
+    <br>
+    <br>
+    <div *ngIf="failActualizado" class="float-left">
+      <p class="p-3 bg-danger text-white rounded">Error: {{msjErr}}</p>
+    </div>
+    <div *ngIf="actualizado" class="float-left">
+      <p class="p-3 bg-success text-white rounded">OK: {{msjOK}}</p>
+    </div>
+
+
+  </div>
+</div>
+

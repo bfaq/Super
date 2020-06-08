@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+
+      <h3 style="margin-left: 50px; color:#05e223; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 30px; margin-left: 115px;">CREAR USUARIO </h3>
+    </div>
+
+    <form name="form" #f="ngForm" (ngSubmit)="onRegister()" novalidate>
+      <div class="form-group">
+        <input placeholder="Nombre" class="form-control" name="nombre"  [(ngModel)]="form.nombre" #nombre="ngModel"
+        autocomplete="off" required>
+      </div>
+      <div class="form-group">
+        <input placeholder="Username" class="form-control" name="username" type="text" [(ngModel)]="form.nombreUsuario"
+        #nombreUsuario="ngModel" autocomplete="off" required>
+      </div>
+      <div class="form-group">
+        <input placeholder="Email" class="form-control" name="email" type="email" [(ngModel)]="form.email" #email="ngModel" email
+        autocomplete="off" required>
+      </div>
+      <div class="form-group">
+        <input placeholder="Contraseña" class="form-control" type="password" name="password" [(ngModel)]="form.password" #password="ngModel" required>
+      </div>
+      <div class="form-group">
+          <button id="btn-guei" type="submit" routerLink="/add"class="btn btn-success" [disabled]="!f.valid" >Crear Cuenta</button>
+            <button id="btn-sexo" class="btn btn-success" (click)="volver()">Volver</button>
+          <div *ngIf="f.submitted && isRegisterFail" class="alert alert-success">Fail al crear cuenta: {{ mensajeFail }}</div>
+      </div>
+      <div *ngIf="f.submitted" class="float-left">
+
+      </div>
+    </form>
+
+  </div>
+</div>

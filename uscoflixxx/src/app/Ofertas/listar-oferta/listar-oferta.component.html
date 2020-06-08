@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h3 style=" color: #df6c0e; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 30px; ">Listado de ofertas</h3>
+      <div><button class="btn btn-success btn-lg" style="float:right;" routerLink="/nuevo">Insertar oferta</button></div>
+    </div>
+    <div class="table" >
+      <thead>
+        <tr style="color: rgb(5, 2, 2);" class="text-center">
+          <th>Imagen</th>
+          <th>Nombre producto</th>
+          <th>Descripción</th>
+          <th>Precio</th>
+          <th>Tipo producto</th>
+          <th>Supermercado</th>
+          <th>Vigencia</th>
+          <!--<th>Ver</th>-->
+          <th>Editar</th>
+          <th>Borrar</th>
+        </tr>
+      </thead>
+      <tbody style="color: rgb(0, 0, 0);">
+         <tr *ngFor="let oferta of ofertas" class="text-center">
+           <td>{{oferta.imagen}}</td>
+           <td>{{oferta.nombreProducto}}</td>
+           <td>{{oferta.descripcion}}</td>
+           <td>{{oferta.precio}}</td>
+           <td>{{oferta.tipo}}</td>
+           <td>{{oferta.supermercado}}</td>
+           <td>{{oferta.vigencia}}</td>
+           <!--<td><button class="btn btn-primary" routerLink="/detalle/{{oferta.id}}">Ver</button></td>-->
+           <td><button class="btn btn-warning" routerLink="/editar/{{oferta.id}}">Editar</button></td>
+           <td><button class="btn btn-danger" (click)="onDelete(oferta)" style="margin-left: 15px;">Borrar</button></td>
+
+         </tr>
+      </tbody>
+    </div>
+  </div>
+</div>
