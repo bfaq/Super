@@ -13,8 +13,8 @@ public class Oferta {
 	 @NotBlank
      @Column
      private String nombreProducto;
-	 @Column
-     private String tipo;
+	 @OneToOne
+     private TipoOferta tipo;
 	 @Column
      private String imagen;
 	 @Column
@@ -42,10 +42,11 @@ public class Oferta {
 	public void setNombreProducto(String nombreProducto) {
 		this.nombreProducto = nombreProducto;
 	}
-	public String getTipo() {
+	
+	public TipoOferta getTipo() {
 		return tipo;
 	}
-	public void setTipo(String tipo) {
+	public void setTipo(TipoOferta tipo) {
 		this.tipo = tipo;
 	}
 	public String getImagen() {
@@ -101,7 +102,7 @@ public class Oferta {
 			return false;
 		return true;
 	}
-	public Oferta(Long id, @NotBlank String nombreProducto, String tipo, String imagen, String descripcion,
+	public Oferta(Long id, @NotBlank String nombreProducto, TipoOferta tipo, String imagen, String descripcion,
 			String vigencia, SuperMercado supermercado, @NotNull int precio) {
 		super();
 		this.id = id;
