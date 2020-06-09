@@ -36,19 +36,19 @@
         <input placeholder="Vigencia" class="form-control" name="vigencia" [(ngModel)]="form.vigencia" required>
       </div>
       <div class="content-select" style="margin-left: 10%;">
-        <select>
+        <select [(ngModel)]="form.supermercado" name="supermercado">
         <option [ngValue]="super" *ngFor="let super of supermercado">{{super.nombreSuper}}</option>
         </select>
         <i></i>
       </div>
     <br>
-     
+
       <div class="form-group">
         <button id="btn-guei" type="submit" class="btn btn-success" [disabled]="!f.valid">Crear</button>
         <button id="btn-sexo" class="btn btn-success" (click)="volver()">Volver</button>
       </div>
     </form>
-    
+
     <br>
     <br>
     <div *ngIf="failProducto" class="float-left">

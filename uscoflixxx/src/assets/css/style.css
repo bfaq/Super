@@ -2,7 +2,8 @@ body {
     background: url('../img/fondoo2.png');
 
     background-size: 100%;
-    padding-top: 60px;
+    background-repeat: no-repeat;
+    background-attachment: fixed
 }
 .backdrop {
     background-color: rgba(0,0,0,.4);

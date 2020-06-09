@@ -310,14 +310,14 @@
     color:black;
   }
   .none a:hover{
-    color:red;
+    color:#05e223;
   }
 </style>
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner " style="background-color: #010607;">
 
-  <span style="color:white; font-family: 'Bungee Shade', cursive; font-size: 30px; margin-left: 15px;">SUPEROFERTAS</span>
+  <span style="color:#05e223; font-family: 'Bungee Shade', cursive; font-size: 30px; margin-left: 15px;">SUPEROFERTAS</span>
     <div class="spacer" >
      <li class="none"><a  *ngIf="!isLogin" routerLink="/login" class="numr" >Login</a></li>
      <li class="none"><a  *ngIf="!isLogin || authority=='admin'"routerLink="/add" class="numr" style="margin-left:10px;">Registrarse</a></li>
@@ -339,7 +339,7 @@
 
 
     </ng-template>
-    <a  *ngIf="isLogin" (click)="logOut()"  style="cursor: pointer; color: rgb(255, 0, 0); margin-right: 30px; " >Cerrar Sesion</a>
+    <a  *ngIf="isLogin" (click)="logOut()"  style="cursor: pointer; color: #05e223; margin-right: 30px; " >Cerrar Sesion</a>
 </div>
 
 <br>
