@@ -2,53 +2,60 @@
   <div class="card">
     <div class="card-header">
 
-      <h3 style="margin-left: 50px; color:#05e223; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 30px; margin-left: 115px;">CREAR OFERTA </h3>
+      <h3 style="margin-left: 50px; color:#05e223; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 30px; margin-left: 115px;">ACTUALIZAR OFERTA </h3>
     </div>
 
     <form name="form" #f="ngForm" (ngSubmit)="onUpdate()" novalidate>
       <div class="form-group">
-        <input class="form-control" name="imagen" id="imagen" [(ngModel)]="form.imagen" #nombre="ngModel"
+        <input class="form-control" name="imagen" placeholder="Imagen" [(ngModel)]="form.imagen" #nombre="ngModel"
         autocomplete="off" required>
       </div>
       <div class="form-group">
-        <input placeholder="Nombre producto" class="form-control" id="nombreproducto" name="nombreproducto" type="text" [(ngModel)]="form.nombreProducto"
+        <input placeholder="Nombre producto" class="form-control" name="nombreproducto" type="text" [(ngModel)]="form.nombreProducto"
         #nombreUsuario="ngModel" autocomplete="off" required>
       </div>
       <div class="form-group">
-        <input placeholder="Descripción" class="form-control" id="descripcion" name="descripcion" [(ngModel)]="form.descripcion" autocomplete="off" required>
+        <input placeholder="Descripción" class="form-control" name="descripcion" [(ngModel)]="form.descripcion" autocomplete="off" required>
       </div>
       <div class="form-group">
         <input placeholder="Precio" class="form-control" name="precio" [(ngModel)]="form.precio" required>
       </div>
+      <!--
       <div class="form-group">
+        <input placeholder="Tipo producto" class="form-control" name="tipoproducto" [(ngModel)]="form.tipo" required>
+      </div>
+      -->
+      <div  class="content-select" style="margin-left: 10%;">
         <select [(ngModel)]="form.tipo" name="tipoproducto">
-        <option  [ngValue]="tipo" *ngFor="let tipo of tipooferta">{{tipo.descripcion}}</option>
+        <option  [ngValue]="tipo" *ngFor="let tipo of tipoferta">{{tipo.descripcion}}</option>
         </select>
+        <i></i>
       </div>
-
-      <div class="form-group">
-        <select [(ngModel)]="form.supermercado" name="supermercado">
-        <option  [ngValue]="super" *ngFor="let super of supermercado">{{super.nombreSuper}}</option>
-        </select>
-      </div>
-
+      <br>
       <div class="form-group">
         <input placeholder="Vigencia" class="form-control" name="vigencia" [(ngModel)]="form.vigencia" required>
       </div>
+      <div class="content-select" style="margin-left: 10%;">
+        <select>
+        <option [ngValue]="super" *ngFor="let super of supermercado">{{super.nombreSuper}}</option>
+        </select>
+        <i></i>
+      </div>
+    <br>
+     
       <div class="form-group">
-        <button (click)="onUpdate(form)" class="btn btn-success" [disabled]="!f.valid">Actualizar</button>
+        <button id="btn-guei" type="submit" class="btn btn-success" [disabled]="!f.valid">Actualizar</button>
+        <button id="btn-sexo" class="btn btn-success" (click)="volver()">Volver</button>
       </div>
     </form>
-    <div>
-      <button class="btn btn-primary float-left mr-3" (click)="volver()">Volver</button>
-    </div>
+    
     <br>
     <br>
-    <div *ngIf="failActualizado" class="float-left">
-      <p class="p-3 bg-danger text-white rounded">Error: {{msjErr}}</p>
+    <div *ngIf="failProducto" class="float-left">
+      <p class="p-3 bg-danger text-white rounded">Error: {{mensajeFail}}</p>
     </div>
-    <div *ngIf="actualizado" class="float-left">
-      <p class="p-3 bg-success text-white rounded">OK: {{msjOK}}</p>
+    <div *ngIf="creado" class="float-left">
+      <p class="p-3 bg-success text-white rounded">OK: {{mensajeOK}}</p>
     </div>
 
 

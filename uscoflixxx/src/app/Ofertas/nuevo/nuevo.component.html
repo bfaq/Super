@@ -25,26 +25,30 @@
         <input placeholder="Tipo producto" class="form-control" name="tipoproducto" [(ngModel)]="form.tipo" required>
       </div>
       -->
-      <div class="form-group">
+      <div  class="content-select" style="margin-left: 10%;">
         <select [(ngModel)]="form.tipo" name="tipoproducto">
         <option  [ngValue]="tipo" *ngFor="let tipo of tipoferta">{{tipo.descripcion}}</option>
         </select>
+        <i></i>
       </div>
-      <div class="form-group">
-        <select [(ngModel)]="form.supermercado" name="supermercado">
-        <option  [ngValue]="super" *ngFor="let super of supermercado">{{super.nombreSuper}}</option>
-        </select>
-      </div>
+      <br>
       <div class="form-group">
         <input placeholder="Vigencia" class="form-control" name="vigencia" [(ngModel)]="form.vigencia" required>
       </div>
+      <div class="content-select" style="margin-left: 10%;">
+        <select>
+        <option [ngValue]="super" *ngFor="let super of supermercado">{{super.nombreSuper}}</option>
+        </select>
+        <i></i>
+      </div>
+    <br>
+     
       <div class="form-group">
-        <button type="submit" class="btn btn-success" [disabled]="!f.valid">Crear</button>
+        <button id="btn-guei" type="submit" class="btn btn-success" [disabled]="!f.valid">Crear</button>
+        <button id="btn-sexo" class="btn btn-success" (click)="volver()">Volver</button>
       </div>
     </form>
-    <div>
-      <button class="btn btn-primary float-left mr-3" (click)="volver()">Volver</button>
-    </div>
+    
     <br>
     <br>
     <div *ngIf="failProducto" class="float-left">
@@ -57,3 +61,4 @@
 
   </div>
 </div>
+

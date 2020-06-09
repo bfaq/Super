@@ -1,0 +1,180 @@
+html,body{
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+    }
+  
+    .container{
+    height: 100%;
+    align-content: center;
+    margin-left: 30%;
+   
+    }
+    .miselect{
+
+        margin-left: 10%;
+    }
+    .card{
+    height: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 500px;
+    background-color: rgba(174, 225, 245, 0.774) !important;
+    }
+  
+    .social_icon span{
+    font-size: 60px;
+    margin-left: 10px;
+    color: #eb0510;
+    }
+  
+    .social_icon span:hover{
+    color: white;
+    cursor: pointer;
+    }
+  
+    .card-header h3{
+    color: white;
+    margin-left: 25%;
+    }
+  
+    .social_icon{
+    position: absolute;
+    right: 20px;
+    top: -45px;
+    }
+  
+    .input-group-prepend span{
+    width: 50px;
+    background-color: #eb0510;
+    color: black;
+    border:0 !important;
+    }
+  
+    input:focus{
+    outline: 0 0 0 0  !important;
+    box-shadow: 0 0 0 0 !important;
+  
+    }
+  
+    .remember{
+    color: white;
+    }
+  
+    .remember input
+    {
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    margin-right: 5px;
+    }
+  
+    .login_btn{
+    color: black;
+    background-color: #eb0510;
+    width: 100px;
+    }
+  
+    .login_btn:hover{
+    color: black;
+    background-color: white;
+    }
+  
+    .links{
+    color: white;
+    }
+  
+    .links a{
+    margin-left: 4px;
+    }
+    #btn-guei{
+    margin-left: 30%;
+    margin-top: 3%;
+    }
+
+    #btn-sexo{
+    margin-left: 2%;
+    margin-top: 3%;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #1883ba;
+   
+
+    }
+   
+
+    .form-control{
+    width: 80%;
+    margin-left: 10%;
+    }
+    
+    .content-input input,
+    .content-select select{
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+}
+
+    .content-select select{
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+    .content-select select::-ms-expand {
+        display: none;
+    }
+    .content-select{
+        max-width: 400px;
+        position: relative;
+    }
+     
+    .content-select select{
+        display: inline-block;
+        width: 100%;
+        cursor: pointer;
+          padding: 7px 10px;
+          height: 42px;
+          outline: 0; 
+          border: 0;
+        border-radius: 0;
+        background: #f0f0f0;
+        color: #7b7b7b;
+        font-size: 1em;
+        color: #999;
+        font-family: 
+        'Quicksand', sans-serif;
+        border:2px solid rgba(0,0,0,0.2);
+        border-radius: 12px;
+        position: relative;
+        transition: all 0.25s ease;
+    }
+     
+    .content-select select:hover{
+        background: #B1E8CD;
+    }
+     
+    /* 
+    Creamos la fecha que aparece a la izquierda del select.
+    Realmente este elemento es un cuadrado que sólo tienen
+    dos bordes con color y que giramos con transform: rotate(-45deg);
+    */
+    .content-select i{
+        position: absolute;
+        right: 20px;
+        top: calc(50% - 13px);
+        width: 16px;
+        height: 16px;
+        display: block;
+        border-left:4px solid #2AC176;
+        border-bottom:4px solid #2AC176;
+        transform: rotate(-45deg); /* Giramos el cuadrado */
+        transition: all 0.25s ease;
+    }
+     
+    .content-select:hover i{
+        margin-top: 3px;
+    }
