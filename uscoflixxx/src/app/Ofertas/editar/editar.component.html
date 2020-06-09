@@ -21,11 +21,17 @@
         <input placeholder="Precio" class="form-control" name="precio" [(ngModel)]="form.precio" required>
       </div>
       <div class="form-group">
-        <input placeholder="Tipo producto" class="form-control" name="tipo" [(ngModel)]="form.tipo" required>
+        <select [(ngModel)]="form.tipo" name="tipoproducto">
+        <option  [ngValue]="tipo" *ngFor="let tipo of tipooferta">{{tipo.descripcion}}</option>
+        </select>
       </div>
+
       <div class="form-group">
-        <input placeholder="Supermercado" class="form-control" name="supermercado" [(ngModel)]="form.supermercado"required>
+        <select [(ngModel)]="form.supermercado" name="supermercado">
+        <option  [ngValue]="super" *ngFor="let super of supermercado">{{super.nombreSuper}}</option>
+        </select>
       </div>
+
       <div class="form-group">
         <input placeholder="Vigencia" class="form-control" name="vigencia" [(ngModel)]="form.vigencia" required>
       </div>

@@ -3,6 +3,10 @@ import { OfertasService } from '../../Service/ofertas.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Oferta } from '../../Modelo/oferta';
 import swal from 'sweetalert2';
+import { SupermercadoService } from 'src/app/Service/supermercado.service';
+import { Supermercado } from 'src/app/Modelo/Supermercado';
+import { Tipo } from 'src/app/Modelo/Tipo';
+import { TipoOfertasService } from 'src/app/Service/tipoOfertas.service';
 @Component({
   selector: 'app-editar',
   templateUrl: './editar.component.html',
@@ -14,10 +18,12 @@ export class EditarComponent implements OnInit {
   failActualizado = false;
   msjErr = '';
   msjOK = '';
-
+  supermercado: Supermercado[] = [];
+  tipooferta: Tipo[] = [];
   failInit = false;
 
-  constructor(private ofertaService: OfertasService, private activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(private supermercadoService: SupermercadoService, private tipoService: TipoOfertasService,
+    private ofertaService: OfertasService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.params.id;
@@ -25,8 +31,8 @@ export class EditarComponent implements OnInit {
       this.form.imagen  = data.imagen;
       this.form.nombreProducto = data.nombreProducto;
       this.form.descripcion = data.descripcion;
-      this.form.tipo = data.tipo;
-      this.form.supermercado = data.supermercado;
+      this.form.tipo = data.tipo.descripcion;
+      this.form.supermercado = data.supermercado.nombreSuper;
       this.form.precio = data.precio;
       this.form.vigencia = data.vigencia;
     },
@@ -35,9 +41,30 @@ export class EditarComponent implements OnInit {
         this.router.navigate(['']);
       }
     );
+    this.cargarSuper();
+    this.cargarTipo();
   }
+  cargarTipo(): void{
+    this.tipoService.lista().subscribe(data =>{
 
-  onUpdate(ofertas : Oferta): void {
+    this.tipooferta = data;
+  },
+    (err: any) => {
+      console.log(err);
+    }
+    );
+  }
+  cargarSuper(): void{
+    this.supermercadoService.lista().subscribe(data =>{
+
+    this.supermercado = data;
+  },
+    (err: any) => {
+      console.log(err);
+    }
+    );
+  }
+  onUpdate(ofertas: Oferta): void {
     const id = this.activatedRoute.snapshot.params.id;
     this.ofertaService.editar(this.form, id).subscribe( data => {
 

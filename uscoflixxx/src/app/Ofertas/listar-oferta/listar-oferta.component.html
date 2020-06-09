@@ -25,8 +25,8 @@
            <td>{{oferta.nombreProducto}}</td>
            <td>{{oferta.descripcion}}</td>
            <td>{{oferta.precio}}</td>
-           <td>{{oferta.tipo}}</td>
-           <td>{{oferta.supermercado}}</td>
+           <td>{{oferta.tipo.descripcion}}</td>
+           <td>{{oferta.supermercado.nombreSuper}}</td>
            <td>{{oferta.vigencia}}</td>
            <!--<td><button class="btn btn-primary" routerLink="/detalle/{{oferta.id}}">Ver</button></td>-->
            <td><button class="btn btn-warning" routerLink="/editar/{{oferta.id}}">Editar</button></td>
@@ -34,6 +34,7 @@
 
          </tr>
       </tbody>
+
     </div>
   </div>
 </div>

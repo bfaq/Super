@@ -5,6 +5,8 @@ import { OfertasService } from '../../Service/ofertas.service';
 import swal from 'sweetalert2';
 import { SupermercadoService} from '../../Service/supermercado.service';
 import { Supermercado } from '../../Modelo/Supermercado';
+import { Tipo } from 'src/app/Modelo/Tipo';
+import { TipoOfertasService } from 'src/app/Service/tipoOfertas.service';
 @Component({
   selector: 'app-nuevo',
   templateUrl: './nuevo.component.html',
@@ -19,12 +21,24 @@ export class NuevoComponent implements OnInit {
   mensajeFail = '';
   mensajeOK = '';
   supermercado: Supermercado[] = [];
-
-  constructor(private supermercadoService: SupermercadoService, private ofertasService: OfertasService, private router: Router) { }
+  tipoferta: Tipo[] = [];
+  constructor(private tipoService: TipoOfertasService, private supermercadoService: SupermercadoService,
+  private ofertasService: OfertasService, private router: Router) { }
 
   ngOnInit() {
     this.cargarSuper();
+    this.cargaTipo();
   }
+  cargaTipo(): void{
+    this.tipoService.lista().subscribe(dato =>{
+    this.tipoferta = dato;
+  },
+    (err: any) => {
+      console.log(err);
+    }
+    );
+  }
+
   cargarSuper(): void{
     this.supermercadoService.lista().subscribe(data =>{
 
